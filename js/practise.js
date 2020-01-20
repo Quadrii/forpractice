@@ -26,3 +26,19 @@ var addTipsToBill = [calculateBill[0] + calculateTips[0],
     calculateBill[2] + calculateTips[2]
 ];
 console.log(calculateTips, addTipsToBill);
+var johnInfo = {
+    firstName: 'john',
+    lastName: 'smith',
+    job: 'teacher',
+    dob: 1980,
+    isMarried: 'true',
+    family: ['tolu', 'fred', 'mirabel']
+}
+
+function calculateAge(johnsAge) {
+    return 2020 - johnsAge;
+}
+var findJohnDob = [johnInfo.dob];
+var howOldIsJohn = findJohnDob;
+console.log(calculateAge(howOldIsJohn));
+console.log(findJohnDob);
