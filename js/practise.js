@@ -27,20 +27,35 @@
 // ];
 // console.log(calculateTips, addTipsToBill);
 
-var johnInfo = {
-    firstName: 'john',
-    lastName: 'smith',
-    job: 'teacher',
-    dob: 1980,
-    isMarried: 'true',
-    family: ['tolu', 'fred', 'mirabel']
-}
+// var johnInfo = {
+//     firstName: 'john',
+//     lastName: 'smith',
+//     job: 'teacher',
+//     dob: 1980,
+//     isMarried: 'true',
+//     family: ['tolu', 'fred', 'mirabel']
+// }
 
-function calculateAge(johnsAge) {
-    return 2020 - johnsAge;
+// function calculateAge(johnsAge) {
+//     return 2020 - johnsAge;
+// }
+// var findJohnDob = [johnInfo.dob];
+// var howOldIsJohn = findJohnDob;
+// var howOldIsJohnNow = calculateAge(howOldIsJohn);
+// console.log(howOldIsJohnNow);
+// console.log(findJohnDob);
+
+function firstFactorial(num) {
+    return num * 4 * 3 * 2 * 1
 }
-var findJohnDob = [johnInfo.dob];
-var howOldIsJohn = findJohnDob;
-var howOldIsJohnNow = calculateAge(howOldIsJohn);
-console.log(howOldIsJohnNow);
-console.log(findJohnDob);
+var result = firstFactorial(4);
+console.log(result);
+
+// In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number. //
+function highestNumber(numbers) {
+    var splitNumbers = numbers.split("");
+    var min = Math.min.apply(null, splitNumbers);
+    var max = Math.max.apply(null, splitNumbers);
+    return min + ' ' + max;
+}
+document.write(highestNumber("1 2 3 4 5"));
