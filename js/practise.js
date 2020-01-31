@@ -52,10 +52,39 @@ var result = firstFactorial(4);
 console.log(result);
 
 // In this little assignment you are given a string of space separated numbers, and have to return the highest and lowest number. //
-function highestNumber(numbers) {
-    var splitNumbers = numbers.split("");
-    var min = Math.min.apply(null, splitNumbers);
-    var max = Math.max.apply(null, splitNumbers);
-    return min + ' ' + max;
+// function highestNumber(numbers) {
+//     var splitNumbers = numbers.split("");
+//     var min = Math.min.apply(null, splitNumbers);
+//     var max = Math.max.apply(null, splitNumbers);
+//     return min + ' ' + max;
+// }
+// document.write(highestNumber("1 2 3 4 5"));
+
+var johnsInfo = {
+    fullName: 'Johnny Jones',
+    mass: 100,
+    height: 6,
+    johnsBmi: function() {
+        this.bmi = this.mass / (this.height * this.height);
+    }
+};
+johnsInfo.johnsBmi();
+console.log(johnsInfo);
+
+
+var marksInfo = {
+    fullName: 'Mark Angel',
+    mass: 15,
+    height: 4,
+    marksBmi: function() {
+        this.bmi = this.mass / (this.height * this.height);
+    }
+};
+marksInfo.marksBmi();
+console.log(marksInfo);
+
+if (johnsInfo.bmi > marksInfo.bmi) {
+    console.log(johnsInfo.fullName + ' ' + 'bmi is the biggest with' + ' ' + johnsInfo.bmi)
+} else {
+    console.log(marksInfo.fullName + ' ' + 'bmi is the biggest with' + ' ' + marksInfo.bmi)
 }
-document.write(highestNumber("1 2 3 4 5"));
