@@ -84,7 +84,38 @@ marksInfo.marksBmi();
 console.log(marksInfo);
 
 if (johnsInfo.bmi > marksInfo.bmi) {
-    console.log(johnsInfo.fullName + ' ' + 'bmi is the biggest with' + ' ' + johnsInfo.bmi)
+    console.log(johnsInfo.fullName + ' ' + 'BMI is the biggest with' + ' ' + johnsInfo.bmi + ' bmi')
 } else {
-    console.log(marksInfo.fullName + ' ' + 'bmi is the biggest with' + ' ' + marksInfo.bmi)
+    console.log(marksInfo.fullName + ' ' + 'BMI is the biggest with' + ' ' + marksInfo.bmi + ' bmi')
 }
+
+
+// function exerciseFour(value) {
+//     var greaterThanFive = false;
+//     if (value > 5) {
+//         console.log(true);
+//     } else {
+//         console.log(greaterThanFive);
+//     }
+//     // In this exercise, you will be given a variable, it will be called: value
+//     // You will also be given a variable named: greaterThanFive
+//     // Using an 'if' statement check to see if the value is greater than 5. If it is, re-assign greaterThanFive the boolean true.  // Please write your answer in the line above.
+
+// }
+// exerciseFour(9);
+
+function exerciseFour(age) {
+    let typeOfLicense;
+    if (age >= 16) {
+        document.write(typeOfLicense = 'Full-Licence')
+    } else if (age <= 15) {
+        document.write(typeOfLicense = 'permit')
+    }
+    // In this exercise, you will be given a variable, it will be called: age
+    // You are also given another variable called: typeOfLicense;
+    // Using an if/else if/else statement assign typeOfLicense to:
+    // 'Full License' if age is greater than or equal to 16,
+    // 'Permit' if age is equal to 15,
+    // 'None' if age is less than 15  // Please write your answer in the line above.
+}
+exerciseFour(16);
