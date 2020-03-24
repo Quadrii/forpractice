@@ -16,16 +16,18 @@ function waiterTips(visitedRestaurantBills) {
         return visitedRestaurantBills * 0.1;
     }
 }
-var calculateBill = [124, 30, 70];
-var calculateTips = [waiterTips(calculateBill[1]),
-    waiterTips(calculateBill[0]),
-    waiterTips(calculateBill[2])
+var calculatedBill = [124, 30, 70];
+var calculateTips = [waiterTips(calculatedBill[1]),
+    waiterTips(calculatedBill[0]),
+    waiterTips(calculatedBill[2])
 ]
-var addTipsToBill = [calculateBill[0] + calculateTips[0],
-    calculateBill[1] + calculateTips[1],
-    calculateBill[2] + calculateTips[2]
+var addTipsToBill = [calculatedBill[0] + calculateTips[0],
+    calculatedBill[1] + calculateTips[1],
+    calculatedBill[2] + calculateTips[2]
 ];
 console.log(calculateTips, addTipsToBill);
+
+
 
 var johnInfo = {
     firstName: 'john',
@@ -55,8 +57,8 @@ console.log(result);
 
 
 /* ==========================================================================
-   In this little assignment you are given a string of space separated numbers, and have to
-     return the highest and lowest number. 
+   In this little assignment you are given a string of space separated numbers, 
+   and have to return the highest and lowest number.
 ========================================================================== */
 function highestNumber(numbers) {
     var splitNumbers = numbers.split("");
@@ -64,7 +66,7 @@ function highestNumber(numbers) {
     var max = Math.max.apply(null, splitNumbers);
     return min + ' ' + max;
 }
-document.write(highestNumber("1 2 3 4 5"));
+console.log(highestNumber("0 1 2 3 4 5"));
 
 
 
@@ -130,13 +132,15 @@ exerciseFour(9);
 function exerciseFour(age) {
     var typeOfLicense;
     if (age >= 16) {
-        document.write(typeOfLicense = 'Full-Licence')
-    } else if (age <= 15) {
-        document.write(typeOfLicense = 'permit')
+        typeOfLicense = 'Full-Licence';
+    } else if (age === 15) {
+        typeOfLicense = 'permit';
+    } else {
+        typeOfLicense = 'None';
     }
-
+    console.log(typeOfLicense);
 }
-exerciseFour(16);
+exerciseFour(13);
 
 
 
@@ -184,3 +188,100 @@ function solution(number) {
     return sum;
 }
 solution(100)
+
+/* ==========================================================================
+    Check If a number is divisible by 2.
+========================================================================== */
+var isEven = function(number) {
+    if (number % 2 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isEven(8));
+
+
+/* ==========================================================================
+    Find Duplicate in an Array
+========================================================================== */
+const findDuplicates = (arr) => {
+    let sorted_arr = arr.slice().sort(); // You can define the comparing function here. 
+    // JS by default uses a crappy string compare.
+    // (we use slice to clone the array so the
+    // original array won't be modified)
+    let results = [];
+    for (let i = 0; i < sorted_arr.length - 1; i++) {
+        if (sorted_arr[i + 1] == sorted_arr[i]) {
+            results.push(sorted_arr[i]);
+        }
+    }
+    return results;
+}
+
+let duplicatedArray = [9, 9, 111, 2, 3, 4, 4, 5, 7];
+console.log(`The duplicates in ${duplicatedArray} are ${findDuplicates(duplicatedArray)}`);
+
+/* ==========================================================================
+    You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
+========================================================================== */
+function findOutlier(integers) {
+    var evens = [];
+    var odds = [];
+    for (var i = 0; i < integers.length; i++) {
+        if ((integers[i] % 2) == 0) {
+            evens.push(integers[i]);
+        } else {
+            odds.push(integers[i]);
+        }
+    }
+    var elen = evens.length;
+    var olen = odds.length;
+
+    if (elen > olen) {
+        return odds[0];
+    } else {
+        return evens[0];
+    }
+}
+
+
+/* ==========================================================================
+
+The new "Avengers" movie has just been released! There are a lot of people at the cinema box office standing in a huge line. Each of them has a single 100, 50 or 25 dollars bill. A "Avengers" ticket costs 25 dollars.
+Vasya is currently working as a clerk. He wants to sell a ticket to every single person in this line.
+Can Vasya sell a ticket to each person and give the change if he initially has no money and sells the tickets strictly in the order people follow in the line?
+Return YES, if Vasya can sell a ticket to each person and give the change. Otherwise return NO.
+========================================================================== */
+function tickets(peopleInline) {
+    let amount25 = 0;
+    let amount50 = 0;
+    let amount100 = 0;
+    for (let i = 0; i < peopleInline.length; i++) {
+
+        if (peopleInline[i] === 100) {
+            if (amount25 >= 1 & amount50 >= 1) {
+                amount25 -= 1;
+                amount50 -= 1;
+                amount100++;
+            } else if (amount25 >= 3) {
+                amount25 -= 3;
+                amount100++;
+            } else {
+                return "NO";
+            }
+        }
+        if (peopleInline[i] === 50) {
+            if (amount25 >= 1) {
+                amount25--;
+                amount50++;
+            } else {
+                return "NO";
+            }
+        }
+        if (peopleInline[i] === 25) {
+            amount25++;
+        }
+    }
+    return "YES";
+}
