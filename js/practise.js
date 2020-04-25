@@ -580,6 +580,46 @@ while (value) {
     }
 }
 
+or
+
+for (;;) {
+    let number = prompt("Enter a number greater than 100?", '0');
+
+    if (number > 100 || !number) break;
+}
+
+or
+
+while (true) {
+    let number = prompt("Enter a number greater than 100?", '0');
+
+    if (number > 100 || !number) break;
+
+}
+
+or
+
+function findPrime(a, b) {
+    let arr = [];
+    for (let i = a; i < b; i++) {
+        for (let j = a; j < i; j++) {
+            if (i % j === 0) { i++; continue };
+        }
+        if (i <= b) { arr.push(i) }
+    }
+
+    return arr
+}
+console.log(findPrime(1, 100))
+
+or
+
+let num;
+while (num < 100 || num == null) {
+    num = prompt("Enter a number greater than 100?", 0);
+    if (num > 100 || num == null) break;
+}
+
 /* ==========================================================================
     An integer number greater than 1 is called a prime if it cannot be divided without a remainder by anything except 1 and itself.
     In other words, n > 1 is a prime if it can’t be evenly divided by anything except 1 and n.
@@ -621,3 +661,8 @@ else {
 }
 
 or
+
+for (let i = 2; i < 12; i++) {
+    if (i % 2 == 1) continue;
+    alert(i);
+}
